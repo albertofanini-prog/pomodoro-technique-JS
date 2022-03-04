@@ -76,12 +76,61 @@ button:disabled{
 
 .pomodoro{
     /* border: 1px solid black; */
+    position: relative;
+    width: var(--timer-size);
+    height: var(--timer-size);
+}
+
+.pomodoro::after{
+    width: 100%;
+    height: 100%;
+    content: "";
+    background-image: url(images/pomodoro.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 80%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.needle{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--timer-size);
+    height: var(--timer-size);
+    background-image: url(images/braccio.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 80%;
 }
 
 .pomodoro img{
     width: 400px;
     height: 400px;
 }
+
+.progress-ring{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--timer-size);
+    height: var(--timer-size);
+}
+
+.progress-ring--shadow circle{
+    fill: transparent;
+    stroke-width: 6;
+    stroke: var(--secondary-color);
+}
+
+.progress-ring--timer circle{
+    fill: transparent;
+    stroke-width: 6;
+    stroke: var(--primary-color);
+}
+
 
 .controls{
     /* border: 1px solid black; */
