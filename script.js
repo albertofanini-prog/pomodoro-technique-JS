@@ -10,6 +10,8 @@ const addTimeBtn = document.querySelector('#addTimeBtn');
 const workSeconds = 30;
 const breakSeconds = 5;
 let timer;
+let currentSeconds = workSeconds;
+let isPaused = true;
 
 updateTimer(workTimer, workSeconds);
 updateTimer(breakTimer, breakSeconds);
@@ -22,6 +24,26 @@ function updateTimer(element, total){
     element.textContent = `${minutes}:${formattedSeconds}`;
 }
 
+function decrement(){
+    if (isPaused){
+        return;
+    }
+
+    currentSeconds--;
+    updateTimer(workTimer, currentSeconds);
+}
+
 controlBtn.addEventListener('click', function(){
-    timer = setInterval(decrement, 1000);
+
+    isPaused = !isPaused;
+
+    if(!isPaused){
+        controlBtn.classList.add('control-btn--pause');
+    } else {
+        controlBtn.classList.remove('control-btn--pause');
+    }
+
+    if(!timer){
+        timer = setInterval(decrement, 1000);
+    }
 });
