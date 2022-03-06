@@ -4,7 +4,8 @@
     --font-family: 'Grandstander', cursive;
     --bg-color: #f9d3ee;
     --primary-color: #da4b27;
-    --secondary-color: #f7b0d6
+    --secondary-color: #f7b0d6;
+    --css-filter: none;
 }
 
 *{
@@ -26,6 +27,21 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: 
+        background-color 1s ease-in,
+        color 1s ease-in;
+}
+
+.break-phase{
+    --bg-color: #ebf6fb;
+    --primary-color: #5c9700;
+    --secondary-color: #cde7ef;
+    --css-filter: 
+        grayscale(68%)
+        brightness(123%)
+        sepia(0)
+        hue-rotate(428deg)
+        saturate(142%)
 }
 
 h1{
@@ -104,6 +120,8 @@ button:disabled{
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 80%;
+    transition: transform 0.5s ease-in;
+    z-index: 5;
 }
 
 .pomodoro img{
@@ -123,12 +141,16 @@ button:disabled{
     fill: transparent;
     stroke-width: 6;
     stroke: var(--secondary-color);
+    transition: stroke 0.5s ease-in;
 }
 
 .progress-ring--timer circle{
     fill: transparent;
     stroke-width: 6;
     stroke: var(--primary-color);
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    transition: stroke-dashoffset 0.5s ease-in;
 }
 
 
@@ -155,6 +177,9 @@ button:disabled{
     padding: 16px 4px 10px 4px;
     border-radius: 8px;
     text-align: center;
+    transition: 
+        background-color 0.5s ease-in,
+        color 0.5s ease-in;
 }
 
 .timer--active{
